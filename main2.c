@@ -6,7 +6,7 @@
 /*   By: elerner <elerner@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 21:42:10 by elerner           #+#    #+#             */
-/*   Updated: 2023/09/07 23:10:41 by elerner          ###   ########.fr       */
+/*   Updated: 2023/09/13 21:08:04 by elerner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,11 @@ char	*append_buffer(t_buffer *b, size_t buffer_size)
 	new_line = malloc(b->line_size + buffer_size);
 	i = 0;
 	while (b->line && i < b->line_size)
-	{
-		new_line[i] = b->line[i];
-		i++;
-	}
+		new_line[i++] = b->line[i];
+	free(b->line);
 	i = 0;
 	while (i < buffer_size)
-	{
-		new_line[b->line_size + i] = b->buffer[b->buffer_start + i];
-		i++;
-	}
-	free(b->line);
-	b->line = NULL;
+		new_line[b->line_size + i++] = b->buffer[b->buffer_start + i];
 	return (new_line);
 }
 
@@ -84,7 +77,7 @@ char	*read_line(int fd)
 	}
 	if (b.line_size > 0)
 		return (append_buffer(&b, 1));
-	free(b.line);
+	//free(b.line);
 	//b.line = NULL;
 	return (NULL);
 }
@@ -98,7 +91,7 @@ int	main(void)
 	while ((line = read_line(fd)) != NULL)
 	{
 		printf("%s\n", line);
-		free(line);
+		//free(line);
     }
 	close(fd);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: elerner <elerner@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 22:28:52 by elerner           #+#    #+#             */
-/*   Updated: 2023/09/07 22:05:26 by elerner          ###   ########.fr       */
+/*   Updated: 2023/09/13 21:09:59 by elerner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(void)
 	int	fd;
 	char *line;
 
-	fd = open("files/multiple_nlx5", O_RDONLY);
+	fd = open("files/big_line_with_nl", O_RDONLY);
 	while ((line = read_line(fd)) != NULL)
 	{
 		printf("%s\n", line);
