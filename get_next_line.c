@@ -105,7 +105,7 @@ char	*get_next_line(int fd)
 	buff = ft_new_buff(buff);
 	return (line);
 }
-
+/*
  int	main(void)
  {
  	char	*line;
@@ -121,4 +121,4 @@ char	*get_next_line(int fd)
  	 }
 	 close(fd1);
  	return (0);
- }
+ }*/
